@@ -2,7 +2,7 @@ using UnityEngine;
 
 /*
     This file has a commented version with details about how each line works. 
-    The commented version contains code that is easier and simpler to read. This file is minified.
+   he  Tcommented version contains code that is easier and simpler to read. This file is minified.
 */
 
 
@@ -13,6 +13,8 @@ using UnityEngine;
 /// </summary>
 public class ThirdPersonController : MonoBehaviour
 {
+
+    StaminaController stamina;
 
     [Tooltip("Speed ​​at which the character moves. It is not affected by gravity or jumping.")]
     public float velocity = 5f;
@@ -106,6 +108,8 @@ public class ThirdPersonController : MonoBehaviour
 
         if(testing)
             sprintAddition = 60;
+
+            stamina = GetComponent<StaminaController>();
     }
 
 
@@ -178,7 +182,7 @@ public class ThirdPersonController : MonoBehaviour
     private void Movement()
     {
         float velocityAddition = 0;
-        if (isSprinting)
+        if (isSprinting && stamina.canSprint)
             velocityAddition = sprintAddition;
         if (isCrouching)
             velocityAddition = -(velocity * 0.50f);  // Reduce velocity by 50% when crouching
@@ -213,7 +217,7 @@ public class ThirdPersonController : MonoBehaviour
             }
 
             // Jump
-            if (movementEnabled && inputJump && _jumpTimeoutDelta <= 0.0f)
+            if (movementEnabled && inputJump && _jumpTimeoutDelta <= 0.0f && stamina.canSprint)
             {
                 // the square root of H * -2 * G = how much velocity needed to reach desired height
                 verticalDirection = Mathf.Sqrt(JumpHeight * 2f);

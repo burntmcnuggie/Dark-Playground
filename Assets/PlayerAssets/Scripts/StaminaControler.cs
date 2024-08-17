@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class StaminaController : MonoBehaviour
 {
     ThirdPersonController ThirdPersonControllerReference;
-    public int maxStamina = 1;
+    public float maxStamina = 1;
     public float currentStamina = 1f;
     public float recoverySpeed = 0.05f;
     public float recoverySpeedBoost = 0.05f;
@@ -12,6 +12,8 @@ public class StaminaController : MonoBehaviour
     bool a = true;
 
     [SerializeField] Slider staminaBar;
+
+    public bool canSprint = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,12 +26,13 @@ public class StaminaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print("currentStamina = " + currentStamina);
         if (!a && ThirdPersonControllerReference.Grounded) {
             a = true;
         }
 
         // deplete stamina
-        if (currentStamina != 0) {
+        if (currentStamina > 0) {
             if (ThirdPersonControllerReference.isSprinting) {
                 currentStamina -= depletionSpeed * Time.deltaTime;
             }
@@ -42,7 +45,7 @@ public class StaminaController : MonoBehaviour
         }
 
         // recover stamina
-        if (currentStamina != maxStamina && !ThirdPersonControllerReference.isJumping && !ThirdPersonControllerReference.isSprinting) {
+        if (currentStamina < maxStamina && !ThirdPersonControllerReference.isJumping && !ThirdPersonControllerReference.isSprinting) {
             if (ThirdPersonControllerReference.isCrouching) {
                 currentStamina += recoverySpeed * 4 * Time.deltaTime;
             }
@@ -53,5 +56,6 @@ public class StaminaController : MonoBehaviour
 
         // update stamina bar
         staminaBar.value = currentStamina;
+        canSprint = currentStamina > 0;
     }
 }

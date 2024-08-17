@@ -9,7 +9,7 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] private float openAngle = 90f;
     [SerializeField] private float swingDuration = 1f;
     [SerializeField] private bool openDirectionPositive = true;
-    [SerializeField] private string requiredKey = "MasterKey"; // The specific string value for the key to unlock the door
+    [SerializeField] public string requiredKey = "MasterKey"; // The specific string value for the key to unlock the door
 
     public bool isOpen = false;
     public bool isLocked = true; // Initial locked status of the door
@@ -41,7 +41,7 @@ public class Door : MonoBehaviour, IInteractable
         if (isLocked)
         {
             // Check if the player has the correct key
-            if (PlayerHasKey(requiredKey))
+            if (InventoryManager.Instance.CheckHasKey(requiredKey))
             {
                 isLocked = false; // Unlock the door
                 print("Door unlocked");
@@ -101,7 +101,7 @@ public class Door : MonoBehaviour, IInteractable
     //     Vector3 gizmoSize = Vector3.Scale(boxCollider.size, transform.localScale);
 
     //     // Draw the door in its current state (open or closed)
-    //     Gizmos.color = isOpen ? Color.green : Color.red;
+    //     Gizmos.color = isOpen ? Color.green : Color.red; 
     //     Gizmos.matrix = Matrix4x4.TRS(centerPoint, transform.rotation, gizmoSize);
     //     Gizmos.DrawCube(Vector3.zero, new Vector3(1, 2, 0.1f));
 

@@ -28,7 +28,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.cinemachine": {
-      "version": "file:C:/Users/lanotheruser/Downloads/com.unity.cinemachine@2.10.0/com.unity.cinemachine@2.10.0",
+      "version": "file:C:/Users/judyw/Downloads/com.unity.cinemachine@2.10.0/com.unity.cinemachine@2.10.0",
       "depth": 0,
       "source": "local",
       "dependencies": {

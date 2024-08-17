@@ -6,7 +6,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
 
     [SerializeField] private List<ItemSO> hotbarItems = new List<ItemSO>(5);
-
+    List<string> keysHeld=  new List<string>();
     private void Awake()
     {
         if (Instance == null)
@@ -57,4 +57,16 @@ public class InventoryManager : MonoBehaviour
             hotbarItems.RemoveAt(slot);
         }
     }
+
+    public void AddKey(string keyAdded)
+    {
+        keysHeld.Add(keyAdded);
+    }
+
+    public bool CheckHasKey(string keyChecked)
+    {
+        return keysHeld.Contains(keyChecked);
+    }
+
+
 }
