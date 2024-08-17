@@ -10,19 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cb56611815d6c643aa2f5b2dbce4c79, type: 3}
-  m_Name: Find a way out
+  m_Name: Find Way Our
   m_EditorClassIdentifier: 
-  questName: Find a way out
-  questDescription: I need to get out of here
-  objectives:
-  - description: Find a Way Out
-    objectiveType: 0
-    status: 0
-    isOptional: 0
-    location: {x: 40.033985, y: -42.038372, z: -30.178677}
-    sceneName: KidneyRoom
-    requiredItemCount: 1
-    currentItemCount: 0
-    targetId: Fwee Candy Woom
+  questName: 
+  questDescription: 
+  objectives: []
   status: 0
   linkedQuest: {fileID: 0}

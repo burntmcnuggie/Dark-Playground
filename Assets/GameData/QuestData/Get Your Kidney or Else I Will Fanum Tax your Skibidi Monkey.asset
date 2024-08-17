@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cb56611815d6c643aa2f5b2dbce4c79, type: 3}
-  m_Name: Find a way out
+  m_Name: Get Your Kidney or Else I Will Fanum Tax your Skibidi Monkey
   m_EditorClassIdentifier: 
-  questName: Find a way out
-  questDescription: I need to get out of here
+  questName: 
+  questDescription: 
   objectives:
-  - description: Find a Way Out
+  - description: Reach the Kidney Location
     objectiveType: 0
     status: 0
     isOptional: 0
-    location: {x: 40.033985, y: -42.038372, z: -30.178677}
+    location: {x: 48.83751, y: 0.624, z: 30.13}
     sceneName: KidneyRoom
     requiredItemCount: 1
     currentItemCount: 0
-    targetId: Fwee Candy Woom
+    targetId: Kidney Location
   status: 0
-  linkedQuest: {fileID: 0}
+  linkedQuest: {fileID: 11400000, guid: 8d4c8b2622f6eab4c8f4b1cd48be0280, type: 2}

@@ -11,6 +11,8 @@ public class KidneyRoomIntroCutscene : MonoBehaviour
 
     [SerializeField] AudioClip introNoise;
 
+    [SerializeField] Quest kidneyQuest;
+
 
     void Start()
     {
@@ -55,5 +57,6 @@ public class KidneyRoomIntroCutscene : MonoBehaviour
 
         playerAnimator.SetTrigger("resetAnim");
         playerController.ActivateControls();
+        QuestManager.Instance.AddQuest(kidneyQuest);
     }
 }
